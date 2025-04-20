@@ -1,0 +1,816 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DouchUp - Download Our Course App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Raleway:wght@300;400;500;600&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --secondary: #ff6b6b;
+        --dark: #2b2d42;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --success: #06d6a0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Open Sans', sans-serif;
+        color: var(--dark);
+        background-color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .logo {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .logo span {
+        color: var(--secondary);
+    }
+    
+    .tagline {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+        text-align: center;
+        position: relative;
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        z-index: 1;
+    }
+    
+    .hero h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .hero p {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .cta-btn {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+    
+    .cta-btn:hover {
+        background-color: #ff5252;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+    }
+    
+    .features {
+        padding: 4rem 1rem;
+        background-color: white;
+    }
+    
+    .section-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary);
+        border-radius: 2px;
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .feature-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .feature-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+    }
+    
+    .feature-desc {
+        font-family: 'Open Sans', sans-serif;
+        color: var(--gray);
+    }
+    
+    .screenshots {
+        padding: 4rem 1rem;
+        background-color: #f5f7ff;
+    }
+    
+    .screenshots-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .screenshots-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+        padding: 2rem 0;
+    }
+    
+    .screenshots-slider::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .screenshot {
+        flex: 0 0 260px;
+        max-width: 260px;
+        height: 520px;
+        margin: 0 1rem;
+        scroll-snap-align: center;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .screenshot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .screenshot-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .screenshot-nav button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin: 0 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .screenshot-nav button:hover {
+        background-color: var(--primary-dark);
+    }
+    
+    .download {
+        padding: 4rem 1rem;
+        text-align: center;
+        background-color: white;
+    }
+    
+    .download-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .download h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .download p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+    }
+    
+    .download-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary);
+        color: white;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .download-btn i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }
+    
+    .download-btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+    }
+    
+    .requirements {
+        padding: 4rem 1rem;
+        background-color: #f5f7ff;
+    }
+    
+    .requirements-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .requirements-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .requirement {
+        background-color: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        flex: 1 1 200px;
+        max-width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .requirement-icon {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .requirement h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .requirement p {
+        font-family: 'Open Sans', sans-serif;
+        color: var(--gray);
+        text-align: center;
+    }
+    
+    .faq {
+        padding: 4rem 1rem;
+        background-color: white;
+    }
+    
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        margin-bottom: 1.5rem;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .faq-question {
+        background-color: #f5f7ff;
+        padding: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+    
+    .faq-question i {
+        transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background-color: white;
+    }
+    
+    .faq-answer-content {
+        padding: 1.2rem;
+        font-family: 'Roboto', sans-serif;
+        color: var(--gray);
+    }
+    
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+    }
+    
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+    
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 1rem;
+    }
+    
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-logo span {
+        color: var(--secondary);
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+    
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0 1rem;
+        text-decoration: none;
+        font-family: 'Raleway', sans-serif;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+        color: white;
+    }
+    
+    .social-icons {
+        display: flex;
+        margin: 1.5rem 0;
+    }
+    
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        margin: 0 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        background-color: var(--primary);
+        transform: translateY(-3px);
+    }
+    
+    .copyright {
+        font-family: 'Open Sans', sans-serif;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .screenshots-slider {
+            padding: 1rem 0;
+        }
+        
+        .screenshot {
+            flex: 0 0 220px;
+            max-width: 220px;
+            height: 440px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .screenshot {
+            flex: 0 0 180px;
+            max-width: 180px;
+            height: 360px;
+            margin: 0 0.5rem;
+        }
+        
+        .cta-btn, .download-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .feature-card {
+            padding: 1.5rem;
+        }
+        
+        .footer-links {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            margin: 0.5rem 0;
+        }
+    }
+</style>
+
+<header>
+    <div class="logo">Douch<span>Up</span></div>
+    <div class="tagline">Your Ultimate Learning Companion</div>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Unlock Your Learning Potential</h1>
+            <p>Access multiple courses anytime, anywhere with our powerful course app designed for serious learners</p>
+            <a href="#download" class="cta-btn">Download Now</a>
+        </div>
+    </div>
+</header>
+
+<section class="features">
+    <h2 class="section-title">Why Choose DouchUp</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3 class="feature-title">Premium Courses</h3>
+            <p class="feature-desc">Access top-quality courses from industry experts across various subjects</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="feature-title">Offline Learning</h3>
+            <p class="feature-desc">Download courses and continue learning even without internet connection</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-certificate"></i>
+            </div>
+            <h3 class="feature-title">Certificates</h3>
+            <p class="feature-desc">Earn verifiable certificates upon course completion to showcase your skills</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h3 class="feature-title">Community</h3>
+            <p class="feature-desc">Connect with fellow learners and instructors for interactive learning</p>
+        </div>
+    </div>
+</section>
+
+<section class="screenshots">
+    <h2 class="section-title">App Screenshots</h2>
+    <div class="screenshots-container">
+        <div class="screenshots-slider">
+            <div class="screenshot">
+                <img src="https://i.ibb.co/WN8J7kvy/5.jpg" alt="Course Dashboard">
+            </div>
+            <div class="screenshot">
+                <img src="https://i.ibb.co/8TtHJmZ/3.jpg" alt="Course Player">
+            </div>
+            <div class="screenshot">
+                <img src="https://i.ibb.co/8DMvK7JH/4.jpg" alt="Course Library">
+            </div>
+            <div class="screenshot">
+                <img src="https://i.ibb.co/MxJ9Hq6d/1.jpg" alt="Profile Page">
+            </div>
+            <div class="screenshot">
+                <img src="https://i.ibb.co/S8W9HHy/6.jpg" alt="Quiz Interface">
+            </div>
+        </div>
+        <div class="screenshot-nav">
+            <button id="prev-screenshot"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-screenshot"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<section class="download" id="download">
+    <div class="download-container">
+        <h2>Download DouchUp Today</h2>
+        <p>Start your learning journey with our powerful Android app and unlock a world of knowledge at your fingertips.</p>
+        <a href="#" class="download-btn" id="download-apk">
+            <i class="fab fa-android"></i>
+            Download APK (v1.2.0)
+        </a>
+    </div>
+</section>
+
+<section class="requirements">
+    <h2 class="section-title">System Requirements</h2>
+    <div class="requirements-container">
+        <div class="requirements-list">
+            <div class="requirement">
+                <div class="requirement-icon">
+                    <i class="fas fa-android"></i>
+                </div>
+                <h4>Android Version</h4>
+                <p>Android 5.0 (Lollipop) or higher</p>
+            </div>
+            <div class="requirement">
+                <div class="requirement-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h4>Processor</h4>
+                <p>1.4 GHz or faster</p>
+            </div>
+            <div class="requirement">
+                <div class="requirement-icon">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <h4>RAM</h4>
+                <p>2 GB minimum, 4 GB recommended</p>
+            </div>
+            <div class="requirement">
+                <div class="requirement-icon">
+                    <i class="fas fa-hdd"></i>
+                </div>
+                <h4>Storage</h4>
+                <p>40 MB free space minimum</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                How do I install the APK file? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Enable "Install from Unknown Sources" in your Android settings, then download the APK file and tap on it to install. We provide detailed installation instructions after download.
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Are the courses free? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    We offer both free and premium courses. Premium courses require a subscription or one-time purchase, while free courses are available to all users.
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I download courses for offline viewing? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Yes! Simply tap the download icon on any course and you'll be able to access it without internet connection. Perfect for learning on the go.
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Is my payment information secure? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Absolutely. We use industry-standard encryption and secure payment processors to ensure your payment information is always protected.
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How often do you add new courses? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    We add new courses weekly across various categories. Our content team works with industry experts to ensure fresh, relevant content is always available.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-logo">Douch<span>Up</span></div>
+        <div class="copyright">
+            &copy; 2025 DouchUp. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    const sliderEl = document.querySelector('.screenshots-slider');
+    const prevBtn = document.getElementById('prev-screenshot');
+    const nextBtn = document.getElementById('next-screenshot');
+    const screenshots = document.querySelectorAll('.screenshot');
+    
+    let scrollAmount = 0;
+    const scrollStep = screenshots[0].offsetWidth + 32; 
+    
+    nextBtn.addEventListener('click', () => {
+        scrollAmount += scrollStep;
+        if (scrollAmount > sliderEl.scrollWidth - sliderEl.clientWidth) {
+            scrollAmount = 0;
+        }
+        sliderEl.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    prevBtn.addEventListener('click', () => {
+        scrollAmount -= scrollStep;
+        if (scrollAmount < 0) {
+            scrollAmount = sliderEl.scrollWidth - sliderEl.clientWidth;
+            if (scrollAmount < 0) scrollAmount = 0;
+        }
+        sliderEl.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    let autoScrollInterval = setInterval(() => {
+        nextBtn.click();
+    }, 3000);
+    
+    sliderEl.addEventListener('mouseenter', () => {
+        clearInterval(autoScrollInterval);
+    });
+    
+    sliderEl.addEventListener('mouseleave', () => {
+        autoScrollInterval = setInterval(() => {
+            nextBtn.click();
+        }, 3000);
+    });
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            faqItems.forEach(faqItem => {
+                faqItem.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    const downloadBtn = document.getElementById('download-apk');
+    
+    downloadBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        this.innerHTML = '<i class="fas fa-check"></i> Download Started';
+        this.style.backgroundColor = '#06d6a0';
+        
+        setTimeout(() => {
+            this.innerHTML = '<i class="fab fa-android"></i> Download APK (v1.2.0)';
+            this.style.backgroundColor = '';
+            const downloadLink = document.createElement('a');
+            downloadLink.href = 'douchup.apk';
+            downloadLink.download = 'douchup.apk';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }, 2000);
+    });
+</script>
